@@ -2,38 +2,51 @@
 <div class="container">
     <div class="row my-4">
         <div class="col">
+            <% if (message) { %>
+             <div class="alert alert-dismissible fade show alert-<%= message.type  %> " role="alert">
+            <button class="btn-close" type="button" data-ds-dismiss ="alert" aria-label="close"></button>
+            <strong><%= message.message  %></strong>
+            </div>
+            <% } %>
            <div class="table-responsive">
-            <table class="table table-striped text-center">
-                <thead>
-                    <tr class="table-dark">
-                        <th>ID</th>
-                        <th>Image</th>
-                        <th>Name</th>
-                        <th>E-Mail</th>
-                        <th>phone</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td><img src="" alt=""></td>
-                        <td>helo</td>
-                        <td>helo@gmail.com</td>
-                        <td>8078106286</td>
-                        <td>
-                            <a href="#" class="text-success" style="text-decoration: none;">
-                                <i class="ri-edit-2-fill"></i>
-                              </a>
-
-                              <a href="#" class="text-danger" style="text-decoration: none;">
-                                <i class="ri-delete-bin-4-fill"></i>
-                              </a>
-                              
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <% if (users != "") { %>
+                <table class="table table-striped text-center my-3">
+                    <thead>
+                        <tr class="table-dark">
+                            <th>ID</th>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>E-Mail</th>
+                            <th>phone</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <% users.forEach((row,index) => { %>
+                        <tr class="align-middle">
+                            <td><%= index %></td>
+                            <td><img src="<%= row.image %> " width="50" class="img-thumbnail" alt="image"></td>
+                            <td><%= row.name %></td>
+                            <td><%= row.email %></td>
+                            <td><%= row.phone %></td>
+                            <td>
+                                <a href="/edit/<%= row._id %>" class="text-success" style="text-decoration: none;">
+                                    <i class="ri-edit-2-fill"></i>
+                                  </a>
+    
+                                  <a href="/delete/<%= row._id %>" class="text-danger" style="text-decoration: none;">
+                                    <i class="ri-delete-bin-4-fill"></i>
+                                  </a>
+                                  
+                            </td>
+                        </tr>
+                      <% }) %>
+                    </tbody>
+                </table>
+            <% }else{ %>
+            
+   <h1 class="text-center text-seccondary mt-5">No users found in the database</h1>
+                 <% } %>
             
         </div>
         </div>
