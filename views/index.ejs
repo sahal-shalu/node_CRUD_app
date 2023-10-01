@@ -1,0 +1,43 @@
+<%- include('layout/header.ejs')%>
+<div class="container">
+    <div class="row my-4">
+        <div class="col">
+           <div class="table-responsive">
+            <table class="table table-striped text-center">
+                <thead>
+                    <tr class="table-dark">
+                        <th>ID</th>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>E-Mail</th>
+                        <th>phone</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><img src="" alt=""></td>
+                        <td>helo</td>
+                        <td>helo@gmail.com</td>
+                        <td>8078106286</td>
+                        <td>
+                            <a href="#" class="text-success" style="text-decoration: none;">
+                                <i class="ri-edit-2-fill"></i>
+                              </a>
+
+                              <a href="#" class="text-danger" style="text-decoration: none;">
+                                <i class="ri-delete-bin-4-fill"></i>
+                              </a>
+                              
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+        </div>
+    </div>
+</div>
+
+<%- include('layout/footer.ejs') %>
